@@ -73,7 +73,7 @@
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Jersey+15&family=Noto+Sans+JP:wght@300;400;700&family=Pixelify+Sans:wght@400;500;600;700&family=Press+Start+2P&family=Share+Tech+Mono&family=Silkscreen:wght@400;700&family=VT323&family=Workbench&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Press+Start+2P&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #05020f;
@@ -629,72 +629,6 @@
   .reveal { opacity:0; transform:translateY(24px); transition:opacity 0.6s,transform 0.6s; }
   .reveal.visible { opacity:1; transform:translateY(0); }
 
-  /* ===== TWEAKS PANEL ===== */
-  .tweaks {
-    position: fixed;
-    bottom: 24px; left: 24px;
-    z-index: 800;
-    background: var(--panel);
-    border: 2px solid var(--cyan);
-    box-shadow: 6px 6px 0 #003d42, 0 0 24px rgba(0,245,255,0.2);
-    padding: 0;
-    width: 260px;
-    display: none;
-    font-family: var(--mono);
-  }
-  .tweaks.open { display: block; }
-  .tweaks-head {
-    background: var(--cyan);
-    color: #001f24;
-    padding: 8px 12px;
-    display: flex; justify-content: space-between; align-items: center;
-    font-family: var(--pixel);
-    font-size: 14px;
-    letter-spacing: 0.1em;
-  }
-  .tweaks-close {
-    background: transparent;
-    border: none;
-    color: #001f24;
-    font-family: var(--pixel);
-    font-size: 14px;
-    cursor: none;
-    padding: 0 4px;
-  }
-  .tweaks-body { padding: 14px; }
-  .tweaks-label {
-    font-family: var(--pixel);
-    font-size: 11px;
-    color: var(--muted);
-    letter-spacing: 0.1em;
-    margin-bottom: 8px;
-    display: block;
-  }
-  .font-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
-  .font-opt {
-    background: transparent;
-    border: 1px solid var(--border);
-    color: var(--text);
-    padding: 10px 8px;
-    cursor: none;
-    font-size: 16px;
-    text-align: center;
-    transition: all 0.15s;
-    line-height: 1;
-    min-height: 44px;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .font-opt:hover { border-color: var(--cyan); color: var(--cyan); }
-  .font-opt.active { border-color: var(--pink); color: var(--pink); box-shadow: 0 0 8px rgba(255,45,120,0.4); }
-  .font-opt small {
-    display: block;
-    font-family: var(--mono);
-    font-size: 9px;
-    color: var(--muted);
-    margin-top: 4px;
-    letter-spacing: 0;
-  }
-  .font-opt.active small { color: var(--pink); opacity: 0.7; }
   .boot {
     position: fixed; inset: 0; z-index: 99999;
     background: #000;
@@ -1438,11 +1372,11 @@
         </div>
         <span class="cl-arrow">▶</span>
       </a>
-      <a href="/cdn-cgi/l/email-protection#1f6d7a677e6d655f78727e7673317c7072" class="contact-link">
+      <a href="/cdn-cgi/l/email-protection#3b495e435a49417b5c565a525715585456" class="contact-link">
         <span class="cl-icon">@</span>
         <div class="cl-text">
           <span class="cl-name">EMAIL</span>
-          <span class="cl-handle"><span class="__cf_email__" data-cfemail="e795829f86959da7808a868e8bc984888a">[email&#160;protected]</span></span>
+          <span class="cl-handle"><span class="__cf_email__" data-cfemail="93e1f6ebf2e1e9d3f4fef2faffbdf0fcfe">[email&#160;protected]</span></span>
         </div>
         <span class="cl-arrow">▶</span>
       </a>
@@ -1457,18 +1391,6 @@
     </div>
   </div>
 </section>
-
-<!-- ====== TWEAKS PANEL ====== -->
-<div class="tweaks" id="tweaks">
-  <div class="tweaks-head">
-    <span>★ TWEAKS</span>
-    <button class="tweaks-close" id="tweaksClose" aria-label="Close">✕</button>
-  </div>
-  <div class="tweaks-body">
-    <span class="tweaks-label">▷ PIXEL FONT</span>
-    <div class="font-grid" id="fontGrid"></div>
-  </div>
-</div>
 
 <footer>
   <span>★ © 2026 SERGEY IVANISHIN ★</span>
@@ -1900,56 +1822,6 @@
     } else {
       kIdx = (k === konami[0]) ? 1 : 0;
     }
-  });
-
-  // ====== TWEAKS PANEL — FONT PICKER ======
-  const FONTS = [
-    { name: 'VT323',           stack: "'VT323', monospace",                    sample: 'GAME' },
-    { name: 'Silkscreen',      stack: "'Silkscreen', monospace",               sample: 'GAME' },
-    { name: 'Pixelify Sans',   stack: "'Pixelify Sans', sans-serif",           sample: 'GAME' },
-    { name: 'Jersey 15',       stack: "'Jersey 15', sans-serif",               sample: 'GAME' },
-    { name: 'Workbench',       stack: "'Workbench', sans-serif",               sample: 'GAME' },
-    { name: 'DotGothic16',     stack: "'DotGothic16', monospace",              sample: '東京' },
-    { name: 'Press Start 2P',  stack: "'Press Start 2P', monospace",           sample: 'GAME' },
-    { name: 'Share Tech Mono', stack: "'Share Tech Mono', monospace",          sample: 'GAME' },
-  ];
-  const fontGrid = document.getElementById('fontGrid');
-  const tweaks = document.getElementById('tweaks');
-  let currentFont = localStorage.getItem('pixelFont') || 'VT323';
-
-  function applyFont(name) {
-    const f = FONTS.find(x => x.name === name);
-    if (!f) return;
-    document.documentElement.style.setProperty('--pixel', f.stack);
-    currentFont = name;
-    localStorage.setItem('pixelFont', name);
-    [...fontGrid.children].forEach(c => {
-      c.classList.toggle('active', c.dataset.font === name);
-    });
-  }
-
-  FONTS.forEach(f => {
-    const b = document.createElement('button');
-    b.className = 'font-opt';
-    b.dataset.font = f.name;
-    b.style.fontFamily = f.stack;
-    b.innerHTML = `${f.sample}<small>${f.name}</small>`;
-    b.addEventListener('click', () => applyFont(f.name));
-    fontGrid.appendChild(b);
-  });
-  applyFont(currentFont);
-
-  // Tweaks toolbar protocol
-  window.addEventListener('message', e => {
-    if (!e.data || typeof e.data !== 'object') return;
-    if (e.data.type === '__activate_edit_mode') tweaks.classList.add('open');
-    if (e.data.type === '__deactivate_edit_mode') tweaks.classList.remove('open');
-  });
-  // Announce after listener is wired
-  window.parent.postMessage({ type: '__edit_mode_available' }, '*');
-  document.getElementById('tweaksClose').addEventListener('click', () => {
-    tweaks.classList.remove('open');
-    window.parent.postMessage({ type: '__edit_mode_dismissed' }, '*');
   });
 
   // ====== Cursor ======
