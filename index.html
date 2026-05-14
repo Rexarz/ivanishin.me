@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sergey Ivanishin — Game Designer & Product Director</title>
+<meta name="description" content="Sergey Ivanishin — game designer and product director based in Minsk, Belarus. 11 years in gamedev: slots, original IPs, hyper-casual titles, internal tools. Worked with major industry publishers. Own title — Top Free on Amazon Appstore. AI process integration.">
+<meta name="keywords" content="Sergey Ivanishin, game designer, product director, tech art lead, Unity, gamedev, slots, hyper-casual, AI automation, Minsk, Belarus">
+<meta name="author" content="Sergey Ivanishin">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ivanishin.me">
+
+<!-- Open Graph -->
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Sergey Ivanishin — Game Designer & Product Director">
+<meta property="og:description" content="11 years in gamedev. Slots, original IPs, hyper-casual, internal tools. Worked with major publishers. AI process integration. Based in Minsk, Belarus.">
+<meta property="og:url" content="https://ivanishin.me">
+<meta property="og:site_name" content="ivanishin.me">
+<meta property="profile:first_name" content="Sergey">
+<meta property="profile:last_name" content="Ivanishin">
+
+<!-- Twitter/X Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sergey Ivanishin — Game Designer & Product Director">
+<meta name="twitter:description" content="11 years in gamedev. Slots, original IPs, hyper-casual, internal tools. AI process integration.">
+
+<!-- Schema.org structured data for LLMs and AI search -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Sergey Ivanishin",
+  "url": "https://ivanishin.me",
+  "email": "rexarz@gmail.com",
+  "jobTitle": "Game Designer & Product Director",
+  "description": "Game designer and product director with 11 years of experience in the games industry. Worked with major industry publishers on slot games, original IP development, and hyper-casual titles. Own title reached Top Free on Amazon Appstore. Specializing in game design, product strategy, tech art leadership, and AI process integration.",
+  "knowsAbout": [
+    "Game Development",
+    "Product Management",
+    "Unity",
+    "Godot",
+    "2D Animation",
+    "VFX",
+    "Slot Games",
+    "Hyper-Casual Games",
+    "Tech Art",
+    "AI Integration",
+    "AI Process Automation",
+    "Jira",
+    "Git",
+    "Team Leadership"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Minsk",
+    "addressCountry": "BY"
+  },
+  "sameAs": [
+    "https://t.me/rexarz",
+    "https://www.linkedin.com/in/sergey-ivanishyn"
+  ],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Independent"
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Noto+Sans+JP:wght@300;400;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #05020f;
+    --bg2: #0a0520;
+    --panel: #0d0828;
+    --border: #2a1f5e;
+    --text: #e8e0ff;
+    --muted: #6b5fa0;
+    --pink: #ff2d78;
+    --cyan: #00f5ff;
+    --yellow: #ffe600;
+    --orange: #ff6b00;
+    --green: #00ff9d;
+    --purple: #b44dff;
+    --pixel: 'Press Start 2P', monospace;
+    --jp: 'Noto Sans JP', sans-serif;
+    --mono: 'Share Tech Mono', monospace;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--jp);
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* Scanlines */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0,0,0,0.15) 2px,
+      rgba(0,0,0,0.15) 4px
+    );
+    pointer-events: none;
+    z-index: 9998;
+  }
+
+  /* CRT vignette */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 60%, rgba(0,0,0,0.7) 100%);
+    pointer-events: none;
+    z-index: 9997;
+  }
+
+  /* Custom cursor crosshair */
+  .cursor {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+  }
+  .cursor::before, .cursor::after {
+    content: '';
+    position: absolute;
+    background: var(--pink);
+  }
+  .cursor::before { width: 2px; height: 100%; left: 50%; top: 0; transform: translateX(-50%); }
+  .cursor::after { height: 2px; width: 100%; top: 50%; left: 0; transform: translateY(-50%); }
+  .cursor.active::before, .cursor.active::after { background: var(--yellow); }
+
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--pink); }
+
+  /* ===== HEADER ===== */
+  header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 500;
+    padding: 0 32px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--bg);
+    border-bottom: 2px solid var(--pink);
+    box-shadow: 0 0 20px rgba(255,45,120,0.3);
+  }
+  .header-left { display: flex; align-items: center; gap: 16px; }
+  .coin-insert {
+    font-family: var(--pixel);
+    font-size: 7px;
+    color: var(--yellow);
+    animation: blink 1s step-end infinite;
+  }
+  .credit-counter { font-family: var(--pixel); font-size: 7px; color: var(--cyan); }
+  nav { display: flex; }
+  nav a {
+    font-family: var(--pixel);
+    font-size: 7px;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 8px 16px;
+    border-left: 1px solid var(--border);
+    transition: color 0.1s, background 0.1s;
+    letter-spacing: 0.05em;
+  }
+  nav a:hover { color: var(--yellow); background: rgba(255,230,0,0.08); }
+
+  /* ===== MARQUEE ===== */
+  .marquee-bar {
+    position: fixed;
+    top: 56px; left: 0; right: 0;
+    z-index: 499;
+    background: var(--pink);
+    padding: 6px 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .marquee-inner {
+    display: inline-block;
+    animation: marquee 22s linear infinite;
+    font-family: var(--pixel);
+    font-size: 7px;
+    color: #000;
+    letter-spacing: 0.1em;
+  }
+  .marquee-inner span { margin: 0 32px; }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh;
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,45,120,0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,45,120,0.07) 1px, transparent 1px);
+    background-size: 40px 40px;
+    transform: rotateX(30deg) scale(1.5);
+    transform-origin: 50% 100%;
+  }
+  .hero-kanji {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    opacity: 0.04;
+    pointer-events: none;
+    font-size: 48px;
+    color: var(--cyan);
+    line-height: 1;
+    user-select: none;
+    word-break: break-all;
+    padding: 20px;
+  }
+  .hero-badge {
+    font-family: var(--pixel);
+    font-size: 8px;
+    color: var(--cyan);
+    border: 2px solid var(--cyan);
+    padding: 6px 16px;
+    margin-bottom: 32px;
+    box-shadow: 0 0 12px rgba(0,245,255,0.4), inset 0 0 12px rgba(0,245,255,0.05);
+    animation: fadeUp 0.6s 0.2s both;
+    letter-spacing: 0.1em;
+    position: relative; z-index: 1;
+  }
+  .hero-jp-title {
+    font-family: var(--jp);
+    font-size: clamp(12px, 1.8vw, 18px);
+    font-weight: 300;
+    color: var(--pink);
+    letter-spacing: 0.4em;
+    margin-bottom: 16px;
+    animation: fadeUp 0.6s 0.3s both;
+    text-shadow: 0 0 20px rgba(255,45,120,0.8);
+    position: relative; z-index: 1;
+  }
+  .hero-name {
+    font-family: var(--pixel);
+    font-size: clamp(22px, 4.5vw, 52px);
+    line-height: 1.5;
+    margin-bottom: 8px;
+    animation: fadeUp 0.6s 0.4s both;
+    position: relative; z-index: 1;
+  }
+  .hero-name .line1 { color: var(--text); display: block; }
+  .hero-name .line2 {
+    color: var(--pink);
+    text-shadow: 0 0 30px rgba(255,45,120,0.8), 3px 3px 0 #7a0030;
+    display: block;
+    position: relative;
+  }
+  .hero-name .line2::before {
+    content: 'IVANISHIN';
+    position: absolute;
+    left: 0; right: 0;
+    color: var(--cyan);
+    opacity: 0;
+    animation: glitch 4s 2s infinite;
+    clip-path: polygon(0 30%, 100% 30%, 100% 50%, 0 50%);
+    transform: translateX(-3px);
+  }
+  .hero-sub {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 32px;
+    margin-bottom: 48px;
+    max-width: 520px;
+    line-height: 1.8;
+    animation: fadeUp 0.6s 0.6s both;
+    position: relative; z-index: 1;
+  }
+  .hero-sub .hl { color: var(--cyan); }
+  .hero-btns {
+    display: flex;
+    gap: 16px;
+    animation: fadeUp 0.6s 0.8s both;
+    position: relative; z-index: 1;
+  }
+  .btn {
+    font-family: var(--pixel);
+    font-size: 8px;
+    padding: 14px 24px;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: all 0.1s;
+    display: inline-block;
+    cursor: none;
+  }
+  .btn-p1 {
+    background: var(--pink);
+    color: #000;
+    box-shadow: 4px 4px 0 #7a0030, 0 0 20px rgba(255,45,120,0.5);
+  }
+  .btn-p1:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 #7a0030, 0 0 30px rgba(255,45,120,0.7); }
+  .btn-p2 {
+    background: transparent;
+    color: var(--cyan);
+    border: 2px solid var(--cyan);
+    box-shadow: 4px 4px 0 #003d42, 0 0 20px rgba(0,245,255,0.3);
+  }
+  .btn-p2:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 #003d42, 0 0 30px rgba(0,245,255,0.5); }
+
+  .hero-stats {
+    position: absolute;
+    bottom: 48px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 32px;
+    animation: fadeIn 1s 1.2s both;
+    z-index: 1;
+  }
+  .hstat { text-align: center; }
+  .hstat-label { font-family: var(--pixel); font-size: 6px; color: var(--muted); display: block; margin-bottom: 6px; }
+  .hstat-bar { width: 80px; height: 8px; background: var(--border); position: relative; }
+  .hstat-fill { height: 100%; position: absolute; left: 0; top: 0; }
+  .hstat-fill.pk { background: var(--pink); box-shadow: 0 0 8px var(--pink); }
+  .hstat-fill.cy { background: var(--cyan); box-shadow: 0 0 8px var(--cyan); }
+  .hstat-fill.yl { background: var(--yellow); box-shadow: 0 0 8px var(--yellow); }
+  .hstat-val { font-family: var(--pixel); font-size: 6px; color: var(--text); display: block; margin-top: 4px; }
+
+  /* ===== SECTIONS ===== */
+  section { padding: 100px 48px; position: relative; }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 64px;
+  }
+  .section-num {
+    font-family: var(--pixel);
+    font-size: 8px;
+    color: var(--pink);
+    border: 2px solid var(--pink);
+    padding: 6px 10px;
+    box-shadow: 3px 3px 0 #7a0030;
+  }
+  .section-title {
+    font-family: var(--pixel);
+    font-size: clamp(12px, 2vw, 20px);
+    color: var(--text);
+    text-shadow: 3px 3px 0 var(--border);
+  }
+  .section-jp { font-family: var(--jp); font-size: 13px; color: var(--muted); margin-left: auto; letter-spacing: 0.2em; }
+
+  .divider {
+    border: none;
+    height: 2px;
+    background: linear-gradient(90deg, var(--pink), var(--purple), var(--cyan), transparent);
+    box-shadow: 0 0 12px rgba(255,45,120,0.4);
+  }
+
+  /* ===== ABOUT ===== */
+  .about-layout {
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 64px;
+    align-items: start;
+  }
+  .about-text { font-family: var(--mono); font-size: 14px; line-height: 2; color: #9990cc; }
+  .about-text p + p { margin-top: 20px; }
+  .about-text strong { color: var(--cyan); font-weight: 400; }
+
+  .char-card {
+    background: var(--panel);
+    border: 2px solid var(--pink);
+    box-shadow: 6px 6px 0 #7a0030, 0 0 40px rgba(255,45,120,0.15);
+    overflow: hidden;
+  }
+  .char-header {
+    background: var(--pink);
+    padding: 10px 16px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .char-header span { font-family: var(--pixel); font-size: 7px; color: #000; }
+  .char-body { padding: 24px; }
+  .char-name { font-family: var(--pixel); font-size: 14px; color: var(--yellow); text-shadow: 2px 2px 0 #7a5900; margin-bottom: 4px; }
+  .char-title-line { font-family: var(--mono); font-size: 11px; color: var(--cyan); margin-bottom: 24px; }
+  .char-stats { display: flex; flex-direction: column; gap: 12px; }
+  .char-achievements {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .char-achievements li {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-family: var(--mono);
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--muted);
+  }
+  .ach-bullet {
+    color: var(--pink);
+    font-family: var(--pixel);
+    font-size: 10px;
+    flex-shrink: 0;
+    margin-top: 1px;
+    text-shadow: 0 0 6px var(--pink);
+  }
+  .ach-text strong { color: var(--cyan); font-weight: 400; }
+  .cstat-row { display: flex; align-items: center; gap: 12px; }
+  .cstat-name { font-family: var(--pixel); font-size: 6px; color: var(--muted); width: 64px; flex-shrink: 0; }
+  .cstat-bar { flex: 1; height: 10px; background: var(--border); position: relative; overflow: hidden; }
+  .cstat-fill { height: 100%; position: absolute; left: 0; top: 0; transition: width 1.5s cubic-bezier(0.4,0,0.2,1); }
+  .cf-p { background: var(--pink); box-shadow: 0 0 6px var(--pink); }
+  .cf-c { background: var(--cyan); box-shadow: 0 0 6px var(--cyan); }
+  .cf-y { background: var(--yellow); box-shadow: 0 0 6px var(--yellow); }
+  .cf-g { background: var(--green); box-shadow: 0 0 6px var(--green); }
+  .cf-o { background: var(--orange); box-shadow: 0 0 6px var(--orange); }
+  .cstat-val { font-family: var(--pixel); font-size: 7px; color: var(--text); width: 28px; text-align: right; flex-shrink: 0; }
+  .char-footer {
+    border-top: 1px solid var(--border);
+    margin-top: 24px; padding-top: 16px;
+    display: flex; justify-content: space-between;
+  }
+  .char-footer span { font-family: var(--pixel); font-size: 6px; color: var(--muted); }
+  .char-footer .val { color: var(--yellow); }
+
+  /* ===== EXP CARDS ===== */
+  .exp-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 4px; }
+  .exp-card {
+    background: var(--panel);
+    border: 2px solid var(--border);
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .exp-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+  .exp-card:nth-child(1)::before { background: var(--pink); box-shadow: 0 0 12px var(--pink); }
+  .exp-card:nth-child(2)::before { background: var(--cyan); box-shadow: 0 0 12px var(--cyan); }
+  .exp-card:nth-child(3)::before { background: var(--yellow); box-shadow: 0 0 12px var(--yellow); }
+  .exp-card:nth-child(4)::before { background: var(--purple); box-shadow: 0 0 12px var(--purple); }
+  .exp-card:hover::before { transform: scaleX(1); }
+  .exp-card:nth-child(1):hover { border-color: var(--pink); box-shadow: 0 0 20px rgba(255,45,120,0.15); }
+  .exp-card:nth-child(2):hover { border-color: var(--cyan); box-shadow: 0 0 20px rgba(0,245,255,0.15); }
+  .exp-card:nth-child(3):hover { border-color: var(--yellow); box-shadow: 0 0 20px rgba(255,230,0,0.15); }
+  .exp-card:nth-child(4):hover { border-color: var(--purple); box-shadow: 0 0 20px rgba(180,77,255,0.15); }
+  .exp-icon { font-family: var(--pixel); font-size: 28px; margin-bottom: 16px; display: block; line-height: 1; }
+  .exp-card:nth-child(1) .exp-icon { color: var(--pink); text-shadow: 0 0 12px var(--pink); }
+  .exp-card:nth-child(2) .exp-icon { color: var(--cyan); text-shadow: 0 0 12px var(--cyan); }
+  .exp-card:nth-child(3) .exp-icon { color: var(--yellow); text-shadow: 0 0 12px var(--yellow); }
+  .exp-card:nth-child(4) .exp-icon { color: var(--purple); text-shadow: 0 0 12px var(--purple); }
+  .exp-num { position: absolute; top: 16px; right: 16px; font-family: var(--pixel); font-size: 8px; color: var(--border); }
+  .exp-title { font-family: var(--pixel); font-size: 11px; color: var(--text); margin-bottom: 12px; line-height: 1.6; }
+  .exp-desc { font-family: var(--mono); font-size: 12px; color: var(--muted); line-height: 1.8; }
+  .exp-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 20px; }
+  .exp-tag { font-family: var(--pixel); font-size: 6px; padding: 4px 8px; border: 1px solid var(--border); color: var(--muted); }
+
+  /* ===== TOOLS TABLE ===== */
+  .tools-table { background: var(--panel); border: 2px solid var(--border); overflow: hidden; }
+  .tools-thead {
+    background: rgba(255,45,120,0.15);
+    border-bottom: 2px solid var(--pink);
+    display: grid;
+    grid-template-columns: 48px 1fr 140px 80px;
+    padding: 12px 24px; gap: 16px;
+  }
+  .tools-thead span { font-family: var(--pixel); font-size: 6px; color: var(--pink); letter-spacing: 0.1em; }
+  .tool-row {
+    display: grid;
+    grid-template-columns: 48px 1fr 140px 80px;
+    padding: 18px 24px; gap: 16px;
+    border-bottom: 1px solid var(--border);
+    align-items: center;
+    text-decoration: none; color: inherit;
+    transition: background 0.15s;
+    cursor: none;
+  }
+  .tool-row:last-child { border-bottom: none; }
+  .tool-row:hover { background: rgba(255,45,120,0.06); }
+  .tool-row:hover .tool-name { color: var(--cyan); }
+  .tool-idx { font-family: var(--pixel); font-size: 8px; color: var(--pink); }
+  .tool-name { font-family: var(--mono); font-size: 13px; transition: color 0.15s; }
+  .tool-type { font-family: var(--pixel); font-size: 6px; color: var(--muted); }
+  .tool-date { font-family: var(--pixel); font-size: 6px; color: var(--muted); text-align: right; }
+
+  /* ===== CONTACT ===== */
+  .contact-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .contact-screen {
+    background: var(--panel);
+    border: 3px solid var(--cyan);
+    box-shadow: 8px 8px 0 #003d42, 0 0 60px rgba(0,245,255,0.15);
+    padding: 40px; text-align: center;
+  }
+  .contact-screen-top {
+    font-family: var(--pixel); font-size: 7px; color: var(--cyan);
+    margin-bottom: 32px; letter-spacing: 0.15em;
+    animation: blink 2s step-end infinite;
+  }
+  .contact-big { font-family: var(--pixel); font-size: clamp(18px, 2.8vw, 34px); line-height: 1.6; margin-bottom: 24px; }
+  .contact-big .c1 { color: var(--yellow); text-shadow: 3px 3px 0 #7a5900; display: block; }
+  .contact-big .c2 { color: var(--pink); text-shadow: 3px 3px 0 #7a0030; display: block; }
+  .contact-big .c3 { color: var(--cyan); text-shadow: 3px 3px 0 #003d42; display: block; }
+  .contact-screen-bottom { font-family: var(--mono); font-size: 11px; color: var(--muted); margin-top: 24px; line-height: 1.8; }
+  .contact-links { display: flex; flex-direction: column; gap: 4px; }
+  .contact-link {
+    display: flex; align-items: center; gap: 16px;
+    padding: 18px 24px;
+    background: var(--panel); border: 2px solid var(--border);
+    text-decoration: none; color: var(--muted);
+    transition: all 0.15s; cursor: none;
+  }
+  .contact-link:hover { border-color: var(--pink); color: var(--text); box-shadow: 4px 4px 0 #7a0030; transform: translate(-2px,-2px); }
+  .cl-icon {
+    font-family: var(--pixel);
+    font-size: 14px;
+    color: var(--pink);
+    width: 24px;
+    text-align: center;
+    text-shadow: 0 0 8px rgba(255,45,120,0.5);
+  }
+  .cl-text { flex: 1; }
+  .cl-name { font-family: var(--pixel); font-size: 8px; color: var(--text); display: block; margin-bottom: 4px; }
+  .cl-handle { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+  .contact-link:hover .cl-handle { color: var(--cyan); }
+  .cl-arrow { font-family: var(--pixel); font-size: 10px; color: var(--muted); transition: color 0.15s; }
+  .contact-link:hover .cl-arrow { color: var(--pink); }
+
+  /* ===== FOOTER ===== */
+  footer {
+    border-top: 2px solid var(--pink);
+    box-shadow: 0 -4px 20px rgba(255,45,120,0.2);
+    padding: 20px 48px;
+    display: flex; justify-content: space-between; align-items: center;
+    background: var(--bg);
+  }
+  footer span, footer a { font-family: var(--pixel); font-size: 6px; color: var(--muted); text-decoration: none; letter-spacing: 0.1em; }
+  footer a:hover { color: var(--pink); }
+  .footer-mid { display: flex; gap: 12px; align-items: center; }
+  .footer-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); box-shadow: 0 0 6px var(--green); animation: blink 1.5s step-end infinite; }
+
+  /* ===== KEYFRAMES ===== */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes blink { 0%,100% { opacity:1; } 50% { opacity:0; } }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @keyframes glitch {
+    0%,90%,100% { opacity:0; }
+    92% { opacity:0.8; transform:translateX(-3px); }
+    94% { opacity:0; }
+    96% { opacity:0.6; transform:translateX(3px); }
+    98% { opacity:0; }
+  }
+
+  .reveal { opacity:0; transform:translateY(24px); transition:opacity 0.6s,transform 0.6s; }
+  .reveal.visible { opacity:1; transform:translateY(0); }
+
+  @media (max-width: 768px) {
+    header { padding: 0 16px; }
+    nav { display: none; }
+    section { padding: 80px 20px; }
+    .about-layout { grid-template-columns: 1fr; }
+    .exp-grid { grid-template-columns: 1fr; }
+    .contact-wrap { grid-template-columns: 1fr; }
+    .tools-thead { display: none; }
+    .tool-row { grid-template-columns: 32px 1fr; }
+    .tool-type, .tool-date { display: none; }
+    footer { padding: 16px 20px; flex-direction: column; gap: 8px; }
+    .hero-stats { display: none; }
+    body { cursor: auto; }
+    .cursor { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+
+<div class="marquee-bar">
+  <div class="marquee-inner">
+    <span>★ IVANISHIN.ME</span><span>イワニシン</span>
+    <span>★ GAME DESIGNER</span><span>ゲームデザイナー</span>
+    <span>★ PRODUCT DIRECTOR</span><span>プロダクト</span>
+    <span>★ AI TOOLS</span><span>人工知能</span>
+    <span>★ MINSK, BELARUS</span><span>ミンスク</span>
+    <span>★ SINCE 2015</span>
+    <span>★ IVANISHIN.ME</span><span>イワニシン</span>
+    <span>★ GAME DESIGNER</span><span>ゲームデザイナー</span>
+    <span>★ PRODUCT DIRECTOR</span><span>プロダクト</span>
+    <span>★ AI TOOLS</span><span>人工知能</span>
+    <span>★ MINSK, BELARUS</span><span>ミンスク</span>
+    <span>★ SINCE 2015</span>
+  </div>
+</div>
+
+<header>
+  <div class="header-left">
+    <div class="coin-insert">▶ INSERT COIN</div>
+    <div class="credit-counter">CREDIT: 99</div>
+  </div>
+  <nav>
+    <a href="#about">PROFILE</a>
+    <a href="#exp">EXPERIENCE</a>
+    <a href="#tools">SKILLS</a>
+    <a href="#contact">CONTACT</a>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-grid"></div>
+  <div class="hero-kanji" id="kanjiWall"></div>
+
+  <div class="hero-badge">PLAYER ONE — READY</div>
+  <div class="hero-jp-title">ゲームデザイナー ＆ プロダクト・ディレクター</div>
+  <h1 class="hero-name">
+    <span class="line1">SERGEY</span>
+    <span class="line2">IVANISHIN</span>
+  </h1>
+  <p class="hero-sub">
+    <span class="hl">11 years</span> in gamedev. Slots, original IPs, hyper-casual, internal tools.<br>
+    Using AI to automate workflows and integrate processes.
+  </p>
+  <div class="hero-btns">
+    <a href="#exp" class="btn btn-p1">▶ START GAME</a>
+    <a href="#contact" class="btn btn-p2">✉ CONTACT</a>
+  </div>
+
+  <div class="hero-stats">
+    <div class="hstat">
+      <span class="hstat-label">GAMEDEV</span>
+      <div class="hstat-bar"><div class="hstat-fill pk" style="width:100%"></div></div>
+      <span class="hstat-val">11 YRS</span>
+    </div>
+    <div class="hstat">
+      <span class="hstat-label">GAME DESIGN</span>
+      <div class="hstat-bar"><div class="hstat-fill cy" style="width:100%"></div></div>
+      <span class="hstat-val">5 YRS</span>
+    </div>
+    <div class="hstat">
+      <span class="hstat-label">PRODUCT</span>
+      <div class="hstat-bar"><div class="hstat-fill yl" style="width:100%"></div></div>
+      <span class="hstat-val">2 YRS</span>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="about">
+  <div class="section-header reveal">
+    <div class="section-num">01</div>
+    <div class="section-title">CHARACTER PROFILE</div>
+    <div class="section-jp">キャラクタープロフィール</div>
+  </div>
+  <div class="about-layout">
+    <div class="about-text reveal">
+      <p>
+        <strong>Game designer and product director</strong> based in Minsk. In the industry since 2015 — 11 years of shipping games, from concept to live ops.
+      </p>
+      <p>
+        Worked with <strong>major industry publishers</strong> on slot titles, launched <strong>original IPs</strong>, built <strong>hyper-casual</strong> games and <strong>internal tools</strong> for teams. Own title reached <strong>Top Free on Amazon Appstore</strong>. Onboarded 15+ tech artists across projects.
+      </p>
+      <p>
+        Actively integrating <strong>AI into workflows</strong> — R&D, automation, process integration. This site is a living archive of tools and experiments.
+      </p>
+    </div>
+    <div class="char-card reveal">
+      <div class="char-header">
+        <span>CHARACTER SELECT</span>
+        <span>★★★★★</span>
+      </div>
+      <div class="char-body">
+        <div class="char-name">SERGEY</div>
+        <div class="char-title-line">Game Designer / Product Director</div>
+        <ul class="char-achievements">
+          <li><span class="ach-bullet">▸</span> <span class="ach-text"><strong>11 years</strong> shipping games</span></li>
+          <li><span class="ach-bullet">▸</span> <span class="ach-text">Worked with <strong>major industry publishers</strong></span></li>
+          <li><span class="ach-bullet">▸</span> <span class="ach-text">Own title — <strong>Top Free</strong> on Amazon Appstore</span></li>
+          <li><span class="ach-bullet">▸</span> <span class="ach-text">Onboarded <strong>15+ tech artists</strong></span></li>
+          <li><span class="ach-bullet">▸</span> <span class="ach-text">AI integration across <strong>team workflows</strong></span></li>
+        </ul>
+        <div class="char-footer">
+          <span>LOC <span class="val">MINSK</span></span>
+          <span>CLASS <span class="val">DIRECTOR</span></span>
+          <span>YR <span class="val">2015+</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="exp">
+  <div class="section-header reveal">
+    <div class="section-num">02</div>
+    <div class="section-title">STAGE SELECT</div>
+    <div class="section-jp">ステージセレクト</div>
+  </div>
+  <div class="exp-grid">
+    <div class="exp-card reveal">
+      <span class="exp-num">STG-01</span>
+      <span class="exp-icon">★</span>
+      <div class="exp-title">SLOTS</div>
+      <p class="exp-desc">Casino and slot titles for international publishers. Full cycle — mechanics, art direction, live ops.</p>
+      <div class="exp-tags">
+        <span class="exp-tag">CASINO</span>
+        <span class="exp-tag">UNITY</span>
+        <span class="exp-tag">LIVE OPS</span>
+      </div>
+    </div>
+    <div class="exp-card reveal">
+      <span class="exp-num">STG-02</span>
+      <span class="exp-icon">◆</span>
+      <div class="exp-title">ORIGINAL IP</div>
+      <p class="exp-desc">Original concepts from scratch — mechanics, economy design, product strategy, team leadership.</p>
+      <div class="exp-tags">
+        <span class="exp-tag">PRODUCT</span>
+        <span class="exp-tag">DESIGN</span>
+        <span class="exp-tag">MOBILE</span>
+      </div>
+    </div>
+    <div class="exp-card reveal">
+      <span class="exp-num">STG-03</span>
+      <span class="exp-icon">▲</span>
+      <div class="exp-title">HYPER CASUAL</div>
+      <p class="exp-desc">Fast development cycles. Rapid prototyping, CPI testing, iterations optimized for speed.</p>
+      <div class="exp-tags">
+        <span class="exp-tag">HYPER-CASUAL</span>
+        <span class="exp-tag">UA</span>
+        <span class="exp-tag">CPI</span>
+      </div>
+    </div>
+    <div class="exp-card reveal">
+      <span class="exp-num">STG-04</span>
+      <span class="exp-icon">●</span>
+      <div class="exp-title">INTERNAL TOOLS</div>
+      <p class="exp-desc">AI-powered tools and automation for teams. Integrations, workflow optimization, custom pipelines.</p>
+      <div class="exp-tags">
+        <span class="exp-tag">AI</span>
+        <span class="exp-tag">AUTOMATION</span>
+        <span class="exp-tag">TOOLING</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="tools">
+  <div class="section-header reveal">
+    <div class="section-num">03</div>
+    <div class="section-title">SKILLS & TOOLS</div>
+    <div class="section-jp">スキルとツール</div>
+  </div>
+  <div class="tools-table reveal">
+    <div class="tools-thead">
+      <span>#</span>
+      <span>ITEM NAME</span>
+      <span>TYPE</span>
+      <span>CATEGORY</span>
+    </div>
+    <div class="tool-row">
+      <span class="tool-idx">01</span>
+      <span class="tool-name">Unity / Godot</span>
+      <span class="tool-type">ENGINE</span>
+      <span class="tool-date" style="color:var(--pink)">GAMEDEV</span>
+    </div>
+    <div class="tool-row">
+      <span class="tool-idx">02</span>
+      <span class="tool-name">2D Animation & VFX</span>
+      <span class="tool-type">CRAFT</span>
+      <span class="tool-date" style="color:var(--pink)">GAMEDEV</span>
+    </div>
+    <div class="tool-row">
+      <span class="tool-idx">03</span>
+      <span class="tool-name">Animation Systems Setup & Integration</span>
+      <span class="tool-type">PIPELINE</span>
+      <span class="tool-date" style="color:var(--pink)">GAMEDEV</span>
+    </div>
+    <div class="tool-row">
+      <span class="tool-idx">04</span>
+      <span class="tool-name">Jira / Git Workflow</span>
+      <span class="tool-type">TOOLING</span>
+      <span class="tool-date" style="color:var(--pink)">GAMEDEV</span>
+    </div>
+    <div class="tool-row">
+      <span class="tool-idx">05</span>
+      <span class="tool-name">Tech Artist Onboarding (15+ specialists)</span>
+      <span class="tool-type">LEADERSHIP</span>
+      <span class="tool-date" style="color:var(--pink)">GAMEDEV</span>
+    </div>
+    <div class="tool-row">
+      <span class="tool-idx">06</span>
+      <span class="tool-name">AI R&D</span>
+      <span class="tool-type">RESEARCH</span>
+      <span class="tool-date" style="color:var(--cyan)">AI</span>
+    </div>
+    <div class="tool-row">
+      <span class="tool-idx">07</span>
+      <span class="tool-name">AI Process Integration</span>
+      <span class="tool-type">AUTOMATION</span>
+      <span class="tool-date" style="color:var(--cyan)">AI</span>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="contact">
+  <div class="section-header reveal">
+    <div class="section-num">04</div>
+    <div class="section-title">CONTINUE?</div>
+    <div class="section-jp">コンタクト</div>
+  </div>
+  <div class="contact-wrap">
+    <div class="contact-screen reveal">
+      <div class="contact-screen-top">▶ PRESS START TO CONNECT ◀</div>
+      <div class="contact-big">
+        <span class="c1">INTER</span>
+        <span class="c2">ESTED?</span>
+        <span class="c3">WRITE.</span>
+      </div>
+      <div class="contact-screen-bottom">
+        Available for consulting on<br>
+        <span style="color:var(--cyan)">tech art, game design & product.</span><br><br>
+        For collaboration, consulting,<br>or just to say hi — Telegram is fastest.
+      </div>
+    </div>
+    <div class="contact-links reveal">
+      <a href="https://t.me/rexarz" class="contact-link" target="_blank">
+        <span class="cl-icon">▷</span>
+        <div class="cl-text">
+          <span class="cl-name">TELEGRAM</span>
+          <span class="cl-handle">@rexarz</span>
+        </div>
+        <span class="cl-arrow">▶</span>
+      </a>
+      <a href="mailto:rexarz@gmail.com" class="contact-link">
+        <span class="cl-icon">@</span>
+        <div class="cl-text">
+          <span class="cl-name">EMAIL</span>
+          <span class="cl-handle">rexarz@gmail.com</span>
+        </div>
+        <span class="cl-arrow">▶</span>
+      </a>
+      <a href="https://www.linkedin.com/in/sergey-ivanishyn" class="contact-link" target="_blank">
+        <span class="cl-icon">in</span>
+        <div class="cl-text">
+          <span class="cl-name">LINKEDIN</span>
+          <span class="cl-handle">sergey-ivanishyn</span>
+        </div>
+        <span class="cl-arrow">▶</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>★ © 2026 SERGEY IVANISHIN ★</span>
+  <div class="footer-mid">
+    <div class="footer-dot"></div>
+    <span>ONLINE — READY P2</span>
+  </div>
+  <a href="https://t.me/rexarz" target="_blank">▷ TG @REXARZ</a>
+</footer>
+
+<script>
+  // Cursor
+  const cursor = document.getElementById('cursor');
+  document.addEventListener('mousemove', e => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+  });
+  document.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('mouseenter', () => cursor.classList.add('active'));
+    el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
+  });
+
+  // Kanji wall
+  const chars = '開発者製品監督自動化統合人工知能ゲームツール技術創造革新未来速度力能力戦略設計構築実行';
+  const wall = document.getElementById('kanjiWall');
+  if (wall) {
+    let s = '';
+    for (let i = 0; i < 300; i++) s += chars[Math.floor(Math.random() * chars.length)];
+    wall.textContent = s;
+  }
+
+  // Scroll reveal
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  // Animate stat bars
+  const barObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.cstat-fill[data-w]').forEach((bar, i) => {
+          setTimeout(() => { bar.style.width = bar.dataset.w; }, 100 + i * 150);
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.char-card').forEach(el => barObs.observe(el));
+</script>
+</body>
+</html>
