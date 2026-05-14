@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sergey Ivanishin — Game Designer & Product Director</title>
-<meta name="description" content="Sergey Ivanishin — game designer and product director based in Minsk, Belarus. 11 years in gamedev: slots, original IPs, hyper-casual titles, internal tools. Worked with major industry publishers. Own title — Top Free on Amazon Appstore. AI process integration.">
-<meta name="keywords" content="Sergey Ivanishin, game designer, product director, tech art lead, Unity, gamedev, slots, hyper-casual, AI automation, Minsk, Belarus">
+<meta name="description" content="Sergey Ivanishin — game designer and product director based in Minsk, Belarus. 11 years in gamedev: slots, original IPs, hyper-casual / hybrid casual titles, internal tools. Worked with major industry publishers. Own title — Top Free on Amazon Appstore. Hypothesis-driven product approach. AI process integration.">
+<meta name="keywords" content="Sergey Ivanishin, game designer, product director, tech art lead, Unity, gamedev, slots, hyper-casual, hybrid casual, data-driven product, hypothesis-driven, AI automation, Minsk, Belarus">
 <meta name="author" content="Sergey Ivanishin">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://ivanishin.me">
@@ -13,7 +13,7 @@
 <!-- Open Graph -->
 <meta property="og:type" content="profile">
 <meta property="og:title" content="Sergey Ivanishin — Game Designer & Product Director">
-<meta property="og:description" content="11 years in gamedev. Slots, original IPs, hyper-casual, internal tools. Worked with major publishers. AI process integration. Based in Minsk, Belarus.">
+<meta property="og:description" content="11 years in gamedev. Slots, original IPs, hyper / hybrid casual, internal tools. Hypothesis-driven product approach. AI process integration. Based in Minsk, Belarus.">
 <meta property="og:url" content="https://ivanishin.me">
 <meta property="og:site_name" content="ivanishin.me">
 <meta property="profile:first_name" content="Sergey">
@@ -22,7 +22,7 @@
 <!-- Twitter/X Card -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Sergey Ivanishin — Game Designer & Product Director">
-<meta name="twitter:description" content="11 years in gamedev. Slots, original IPs, hyper-casual, internal tools. AI process integration.">
+<meta name="twitter:description" content="11 years in gamedev. Slots, original IPs, hyper / hybrid casual, internal tools. Data-driven product approach.">
 
 <!-- Schema.org structured data for LLMs and AI search -->
 <script type="application/ld+json">
@@ -33,16 +33,20 @@
   "url": "https://ivanishin.me",
   "email": "rexarz@gmail.com",
   "jobTitle": "Game Designer & Product Director",
-  "description": "Game designer and product director with 11 years of experience in the games industry. Worked with major industry publishers on slot games, original IP development, and hyper-casual titles. Own title reached Top Free on Amazon Appstore. Specializing in game design, product strategy, tech art leadership, and AI process integration.",
+  "description": "Game designer and product director with 11 years of experience in the games industry. Worked with major industry publishers on slot games, original IP development, hyper-casual and hybrid casual titles. Own title reached Top Free on Amazon Appstore. Hypothesis-driven product approach: formulating, testing and defending product decisions with data and clear logic. Specializing in game design, product strategy, tech art leadership, and AI process integration.",
   "knowsAbout": [
-    "Game Development",
+    "Game Design",
     "Product Management",
+    "Product Strategy",
+    "Hypothesis-Driven Development",
+    "Data-Driven Decisions",
     "Unity",
     "Godot",
     "2D Animation",
     "VFX",
     "Slot Games",
     "Hyper-Casual Games",
+    "Hybrid Casual Games",
     "Tech Art",
     "AI Integration",
     "AI Process Automation",
@@ -481,6 +485,36 @@
   .exp-card:nth-child(2) .exp-icon { color: var(--cyan); text-shadow: 0 0 12px var(--cyan); }
   .exp-card:nth-child(3) .exp-icon { color: var(--yellow); text-shadow: 0 0 12px var(--yellow); }
   .exp-card:nth-child(4) .exp-icon { color: var(--purple); text-shadow: 0 0 12px var(--purple); }
+  .exp-card:nth-child(5) .exp-icon { color: var(--green); text-shadow: 0 0 12px var(--green); font-size: 36px; }
+
+  /* Final boss — full width 5th card */
+  .exp-card-wide {
+    grid-column: 1 / -1;
+    border-color: var(--green) !important;
+    box-shadow: 0 0 30px rgba(0,255,157,0.1);
+    position: relative;
+  }
+  .exp-card-wide::before { background: var(--green) !important; box-shadow: 0 0 12px var(--green) !important; transform: scaleX(1) !important; }
+  .exp-card-wide:hover { box-shadow: 0 0 40px rgba(0,255,157,0.25) !important; }
+  .exp-card-wide .exp-title {
+    color: var(--green);
+    text-shadow: 0 0 12px rgba(0,255,157,0.4);
+    font-size: 14px;
+  }
+  .exp-card-wide::after {
+    content: '★ FINAL BOSS ★';
+    position: absolute;
+    top: 16px; right: 16px;
+    font-family: var(--pixel);
+    font-size: 7px;
+    color: var(--green);
+    border: 1px solid var(--green);
+    padding: 4px 8px;
+    letter-spacing: 0.1em;
+    animation: blink 2s step-end infinite;
+  }
+  .exp-card-wide .exp-num { display: none; }
+  .exp-card-wide .exp-desc { max-width: 720px; }
   .exp-num { position: absolute; top: 16px; right: 16px; font-family: var(--pixel); font-size: 8px; color: var(--border); }
   .exp-title { font-family: var(--pixel); font-size: 11px; color: var(--text); margin-bottom: 12px; line-height: 1.6; }
   .exp-desc { font-family: var(--mono); font-size: 12px; color: var(--muted); line-height: 1.8; }
@@ -760,11 +794,11 @@
     <div class="exp-card reveal">
       <span class="exp-num">STG-03</span>
       <span class="exp-icon">▲</span>
-      <div class="exp-title">HYPER CASUAL / HYBRID CASUAL</div>
+      <div class="exp-title">HYPER / HYBRID CASUAL</div>
       <p class="exp-desc">Fast development cycles. Rapid prototyping, CPI testing, iterations optimized for speed.</p>
       <div class="exp-tags">
         <span class="exp-tag">HYPER-CASUAL</span>
-        <span class="exp-tag">UA</span>
+        <span class="exp-tag">HYBRID-CASUAL</span>
         <span class="exp-tag">CPI</span>
       </div>
     </div>
@@ -777,6 +811,18 @@
         <span class="exp-tag">AI</span>
         <span class="exp-tag">AUTOMATION</span>
         <span class="exp-tag">TOOLING</span>
+      </div>
+    </div>
+    <div class="exp-card exp-card-wide reveal">
+      <span class="exp-num">STG-FINAL</span>
+      <span class="exp-icon">✦</span>
+      <div class="exp-title">DATA & HYPOTHESES</div>
+      <p class="exp-desc">Hypothesis-driven product decisions. Formulating, testing, and defending them with data and clear logic to stakeholders. Pressure-testing every assumption before commitment.</p>
+      <div class="exp-tags">
+        <span class="exp-tag">DATA-DRIVEN</span>
+        <span class="exp-tag">HYPOTHESES</span>
+        <span class="exp-tag">ANALYTICS</span>
+        <span class="exp-tag">DECISIONS</span>
       </div>
     </div>
   </div>
